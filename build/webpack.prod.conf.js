@@ -16,7 +16,7 @@ const packageData = require('../package.json');
 
 const env = process.env.NODE_ENV === 'testing'
     ? require('../config/test.env')
-    : require('../config/prod.env');
+    : require('../config/production.env');
 
 const plugins = [];
 Object.keys(baseWebpackConfig.entry).forEach((name) => {
@@ -78,13 +78,13 @@ const webpackConfig = merge(baseWebpackConfig, {
             'process.env': env
         }),
         // extract css into its own file
-        new ExtractTextPlugin({
-            filename: utils.assetsPath('css/[name].[contenthash].css'),
-            // Setting the following option to `false` will not extract CSS from codesplit chunks.
-            // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
-            // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,
-            allChunks: true,
-        }),
+        // new ExtractTextPlugin({
+        //     filename: utils.assetsPath('css/[name].[contenthash].css'),
+        //     // Setting the following option to `false` will not extract CSS from codesplit chunks.
+        //     // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
+        //     // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,
+        //     allChunks: true,
+        // }),
         // Compress extracted CSS. We are using this plugin so that possible
         // duplicated CSS from different components can be deduped.
         new OptimizeCSSPlugin({
@@ -124,7 +124,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     ].concat(plugins),
     optimization: {
         splitChunks: {
-            chunks: 'async', // 必须三选一： "initial" | "all" | "async" initial(初始块)、async(按需加载块)、all(全部块)，默认为async
+            chunks: 'initial', // 必须三选一： "initial" | "all" | "async" initial(初始块)、async(按需加载块)、all(全部块)，默认为async
             minSize: 30000, // 形成一个新代码块最小的体积
             minChunks: 2, // 在分割之前，这个代码块最小应该被引用的次数（译注：为保证代码块复用性，默认配置的策略是不需要多次引用也可以被分割）. must be greater than or equal 2. The minimum number of chunks which need to contain a module before it's moved into the commons chunk.
             maxAsyncRequests: 5, // 按需加载时候最大的并行请求数。

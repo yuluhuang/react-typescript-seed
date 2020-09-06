@@ -27,7 +27,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --mode development  --inline --hot --progress --config build/webpack.dev.conf.js  --host localhost  --open",
     "start": "npm run dev",
-    "build": "cross-env NODE_ENV=prod node build/build.js",
+    "build": "cross-env NODE_ENV=production node build/build.js",
     "build-pt": "cross-env NODE_ENV=pretest node build/build.js",
     "build-test": "cross-env NODE_ENV=test node build/build.js"
   },

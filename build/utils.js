@@ -4,6 +4,7 @@ const config = require('../config');
 const packageConfig = require('../package.json');
 
 const isProduction = (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'pretest');
+
 exports.assetsPath = function (_path) {
     const assetsSubDirectory = isProduction
         ? config.build.assetsSubDirectory

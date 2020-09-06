@@ -55,7 +55,7 @@ module.exports = {
         // }),
         new CleanWebpackPlugin(),
         new webpack.ProvidePlugin({
-            ENV: '../../config/' + process.env.NODE_ENV + '.env.js',
+            ENV: path.resolve(__dirname, '../config/'  + process.env.NODE_ENV + '.env.js')
         }),
         new MiniCssExtractPlugin({
             filename: '[hash].css',
