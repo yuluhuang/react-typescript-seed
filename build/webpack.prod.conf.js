@@ -124,7 +124,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     ].concat(plugins),
     optimization: {
         splitChunks: {
-            chunks: 'initial', // 必须三选一： "initial" | "all" | "async" initial(初始块)、async(按需加载块)、all(全部块)，默认为async
+            chunks: 'all', // 必须三选一： "initial" | "all" | "async" initial(初始块)、async(按需加载块)、all(全部块)，默认为async
             minSize: 30000, // 形成一个新代码块最小的体积
             minChunks: 2, // 在分割之前，这个代码块最小应该被引用的次数（译注：为保证代码块复用性，默认配置的策略是不需要多次引用也可以被分割）. must be greater than or equal 2. The minimum number of chunks which need to contain a module before it's moved into the commons chunk.
             maxAsyncRequests: 5, // 按需加载时候最大的并行请求数。
