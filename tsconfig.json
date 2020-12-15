@@ -90,6 +90,7 @@
   ],
   "include": [
     "src",
-    "types/global.d.ts"
+    "types/global.d.ts",
+    "types/demo1.d.ts"
   ]
 }

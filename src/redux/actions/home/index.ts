@@ -1,4 +1,4 @@
-import AuthServices from '../../../service/AuthServices'
+// import AuthServices from '../../../service/AuthServices'
 
 
 const THISACTION = 'INDEX_';
@@ -26,14 +26,16 @@ const thunk = {
     }
 };
 
-const login = (data: any) => {
-    console.log(data);
-    return {
-        types: Object.values(thunk.getList),
-        params: data,
-        promise: AuthServices.login(data)
-    };
-};
+// const login = (data: any) => {
+//     console.log(data);
+//     return {
+//         type: Object.values(thunk.getList),
+//         payload: AuthServices.login(data)
+//         // types: Object.values(thunk.getList),
+//         // params: data,
+//         // promise: AuthServices.login(data)
+//     };
+// };
 
 
 const action = {
@@ -52,7 +54,7 @@ const setIndex = (data: any) => ({
 
 export default {
     thunk, // 以下为接口调用
-    login,
+    // login,
     action, // 以下为修改数据
     clear,
     setIndex

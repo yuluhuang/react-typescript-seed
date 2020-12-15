@@ -4,4 +4,5 @@ config/*
 src/assets/iconfont/iconfont.js
 node_modules/*
 test/
+types/
 

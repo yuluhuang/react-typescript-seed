@@ -66,7 +66,7 @@ module.exports = {
         rules: [
             ...(config.dev.useEslint ? [createLintingRule()] : []),
             {
-                test: /\.tsx?$/,
+                test: /\.(ts|tsx)?$/,
                 use: [
                     'cache-loader',
                     !isProduction && {

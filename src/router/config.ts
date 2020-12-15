@@ -16,6 +16,11 @@ const Login = Loadable({
     delay: 300
 });
 
+const Demo1 = Loadable({
+    loader: () => import('../components/Demo1'),
+    loading: MyLoading,
+    delay: 300
+});
 const RouterConfig = [
     {
         exact: true,
@@ -36,9 +41,9 @@ const RouterConfig = [
     {
         exact: true,
         path: '',
-        component: Index,
+        component: Demo1,
         unAuth: true,
-        title: '首页',
+        title: '登录',
         children: []
     },
     {

@@ -40,7 +40,7 @@ export namespace Index {
 //         indexFn: bindActionCreators(indexAction, dispatch),
 //     })
 // )
-class Index extends React.Component {
+class Index extends React.Component<any> {
     constructor(props:any) {
         super(props);
         // 搜索bar
@@ -67,9 +67,12 @@ class Index extends React.Component {
 
     render() {
         const {} = this.props;
+        const handleClick = () => {
+            this.props.history.push('/login');
+        }
         return (
             <div>
-                111
+                <div onClick={() => handleClick()}>to login</div>
             </div>
         );
     }

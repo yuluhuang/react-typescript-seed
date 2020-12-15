@@ -15,6 +15,7 @@ dist-*
 
 # production
 /dist
+test.html
 
 # misc
 .DS_Store

@@ -2,7 +2,7 @@ const prod = {
     environment: ENV.NODE_ENV,
     website: ENV.domain,
     root: ENV.root,
-    login: '/login',
+    login: 'https://yuluhuang.com/api/user/JWTSignin', // '/login',
     logout: '/logout'
 };
 

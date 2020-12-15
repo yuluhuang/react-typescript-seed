@@ -1,8 +1,20 @@
 {
-  "presets": [
-    "@babel/preset-env"
-  ],
-  "plugins": [
-    ["@babel/plugin-transform-typescript", { "allowNamespaces": true }]
-  ]
+    "presets": [
+        "@babel/preset-env"
+    ],
+    "plugins": [
+        [
+            "@babel/plugin-transform-typescript",
+            {
+                "allowNamespaces": true
+            }
+        ],
+        [
+            "import",
+            {
+                "libraryName": "antd-mobile",
+                "style": "css"
+            }
+        ]
+    ]
 }
