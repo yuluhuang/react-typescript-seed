@@ -1,3 +1,4 @@
+import {Dispatch } from "redux";
 import AuthServices from "../../../service/AuthServices";
 
 
@@ -40,13 +41,14 @@ const thunk = {
 const login = (data: any) => {
     try {
         return {
-            type: thunk.login.LOGIN_SUCCESS,
-            payload: AuthServices.login(data)
-            // types: Object.values(thunk.getList),
-            // params: data,
-            // promise: AuthServices.login(data)
+            // type: thunk.login.LOGIN_SUCCESS,
+            // payload: AuthServices.login(data)
+            types: Object.values(thunk.login),
+            params: data,
+            promise: AuthServices.login(data)
         };
     } catch (e) {
+        debugger
         return {
             type: thunk.login.LOGIN_FAIL,
             payload: AuthServices.login(data)
@@ -84,7 +86,7 @@ const setAuth = (data: any) => ({
     type: action.SET,
     data
 });
-const authed = () => (dispatch: any) => {
+const authed = () => (dispatch: Dispatch) => {
     // AuthServices.login({})
     //     .then((response) => {
     //         dispatch({

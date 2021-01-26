@@ -21,6 +21,12 @@ const Demo1 = Loadable({
     loading: MyLoading,
     delay: 300
 });
+
+const Demo2 = Loadable({
+    loader: () => import('../components/Demo2'),
+    loading: MyLoading,
+    delay: 300
+});
 const RouterConfig = [
     {
         exact: true,
@@ -40,10 +46,26 @@ const RouterConfig = [
     },
     {
         exact: true,
-        path: '',
-        component: Demo1,
+        path: '/',
+        component: Login,
         unAuth: true,
         title: '登录',
+        children: []
+    },
+    {
+        exact: true,
+        path: '/demo1',
+        component: Demo1,
+        unAuth: true,
+        title: '',
+        children: []
+    },
+    {
+        exact: true,
+        path: '/demo2',
+        component: Demo2,
+        unAuth: true,
+        title: '',
         children: []
     },
     {

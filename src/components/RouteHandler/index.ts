@@ -3,8 +3,8 @@ import React from 'react';
 // import util from '../../assets/utils/utils';
 
 export class RouteHandler extends React.Component {
-    componentDidMount() {
-    }
+    // componentDidMount1() {
+    // }
 
     // componentWillReceiveProps(nextProps) {
     //     const {location, history: {action}} = nextProps;

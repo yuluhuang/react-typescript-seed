@@ -40,7 +40,8 @@ module.exports = {
         mainFields: ['module', 'browser', 'main'],
         alias: {
             app: resolve('src/app'),
-            '~': resolve('src')
+            '~': resolve('src'),
+            'react-dom': '@hot-loader/react-dom'
         }
     },
     performance: {
@@ -83,13 +84,13 @@ module.exports = {
                     isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
                     {
                         loader: 'css-loader',
-                        query: {
-                            sourceMap: !isProduction,
-                            importLoaders: 1,
-                            modules: {
-                                localIdentName: isProduction ? '[hash:base64:5]' : '[local]__[hash:base64:5]'
-                            }
-                        }
+                        // query: {
+                        //     sourceMap: !isProduction,
+                        //     importLoaders: 1,
+                        //     modules: {样式加了后缀，导致不起作用
+                        //         localIdentName: isProduction ? '[hash:base64:5]' : '[local]__[hash:base64:5]'
+                        //     }
+                        // }
                     },
                     {
                         loader: 'postcss-loader',

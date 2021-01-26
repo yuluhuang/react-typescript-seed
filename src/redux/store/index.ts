@@ -2,10 +2,11 @@ import {Store, createStore, applyMiddleware, compose} from 'redux';
 import {createLogger} from 'redux-logger';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {rootReducer} from '../../redux/reduces/index';
-import {thunk} from 'app/middleware';
+// import {thunk} from 'app/middleware';
+import reduxOrder from '../../utils/reduxOrder'
 
 export function configureStore(initialState?: any): Store<any> {
-    const middleware: any = [thunk];
+    const middleware: any = [reduxOrder];
     if (process.env.NODE_ENV !== 'production') {
         // 调用日志打印方法 collapsed是让action折叠
         const loggerMiddleware = createLogger({collapsed: false});

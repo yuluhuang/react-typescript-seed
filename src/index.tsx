@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import VConsole from 'vconsole';
 import {App2} from '../src/router/router';
 // import Hello from 'app/containers/Hello/Hello';
 import {Provider} from 'react-redux';
@@ -8,11 +8,15 @@ import {Provider} from 'react-redux';
 // import {App} from './app';
 // import {createBrowserHistory} from 'history';
 import {configureStore} from '../src/redux/store';
-
-
+import appConfig, { DefaultConfig } from './appConfig';
+import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
 import './index.css';
 
-
+const { enableVConsole }: DefaultConfig = appConfig;
+if (enableVConsole) {
+    console.log('vConsole init success');
+    new VConsole();
+}
 // prepare store
 // const history = createBrowserHistory();
 const store = configureStore();

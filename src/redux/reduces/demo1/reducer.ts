@@ -1,6 +1,7 @@
 import * as actionTypes from "../../actions/demo1/actionTypes"
 
 const initialState: ArticleState = {
+    demo1: {},
     articles: [
         {
             id: 1,

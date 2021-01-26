@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from "react-redux";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {bindActionCreators} from "redux";
 // import indexAction from '../../redux/actions/home';
 
 var indexAction = require('../../redux/actions/home').default
-export namespace Index {
-    export interface Props {
-        loading: boolean
-    }
-}
+// export namespace Index {
+//     export interface Props {
+//         loading: boolean
+//     }
+// }
 
 // export const Index = ({loading} : Index.Props): JSX.Element => {
 //     return (<div>index</div>);
@@ -55,14 +55,14 @@ class Index extends React.Component<any> {
     //     demand: PropTypes.object,
     //     news: PropTypes.object,
     // };
-    static contextTypes = {
-        store: PropTypes.object.isRequired,
-        router: PropTypes.object.isRequired
-    };
+    // static contextTypes = {
+    //     store: PropTypes.object.isRequired,
+    //     router: PropTypes.object.isRequired
+    // };
 
-    componentDidMount() {
-        const {} = this.props;
-    }
+    // componentDidMount1() {
+    //     const {} = this.props;
+    // }
 
 
     render() {

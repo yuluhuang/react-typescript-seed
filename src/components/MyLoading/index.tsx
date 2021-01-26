@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../style/loading.css'
+import loading from '../../loading.svg'
 // import Loadable from 'react-loadable';
 
 export namespace MyLoading {
@@ -18,5 +20,5 @@ export const MyLoading = ({}): JSX.Element => {
     // } else {
     //     return (<div></div>);
     // }
-    return (<div className="loading">加载中</div>);
+    return (<div className="loading"><img src={loading}  alt="logo" /></div>);
 }
