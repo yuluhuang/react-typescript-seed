@@ -2,7 +2,7 @@ import Loadable from 'react-loadable';
 
 import {MyLoading} from '../components/MyLoading';
 import NotFound from '../components/NotFound';
-
+import Demo2 from '../components/Demo2'
 const Index = Loadable({
     loader: () => import('../components/Index'),
     loading: MyLoading,
@@ -22,11 +22,11 @@ const Demo1 = Loadable({
     delay: 300
 });
 
-const Demo2 = Loadable({
-    loader: () => import('../components/Demo2'),
-    loading: MyLoading,
-    delay: 300
-});
+// const Demo2 = Loadable({
+//     loader: () => import('../components/Demo2'),
+//     loading: MyLoading,
+//     delay: 300
+// });
 const RouterConfig = [
     {
         exact: true,
@@ -47,7 +47,7 @@ const RouterConfig = [
     {
         exact: true,
         path: '/',
-        component: Login,
+        component: Demo2,
         unAuth: true,
         title: '登录',
         children: []

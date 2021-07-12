@@ -94,9 +94,9 @@ const webpackConfig = merge(baseWebpackConfig, {
         }),
 
         // keep module.id stable when vendor modules does not change
-        new webpack.HashedModuleIdsPlugin(),
+        // new webpack.HashedModuleIdsPlugin(),
         // enable scope hoisting
-        new webpack.optimize.ModuleConcatenationPlugin(),
+        // new webpack.optimize.ModuleConcatenationPlugin(),
 
         // copy custom static assets
         new CopyWebpackPlugin({

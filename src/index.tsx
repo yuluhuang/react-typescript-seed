@@ -9,7 +9,8 @@ import {Provider} from 'react-redux';
 // import {createBrowserHistory} from 'history';
 import {configureStore} from '../src/redux/store';
 import appConfig, { DefaultConfig } from './appConfig';
-import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
+import 'antd/dist/antd.css';
+// import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
 import './index.css';
 
 const { enableVConsole }: DefaultConfig = appConfig;

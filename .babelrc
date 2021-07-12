@@ -10,12 +10,6 @@
                 "allowNamespaces": true
             }
         ],
-        [
-            "import",
-            {
-                "libraryName": "antd-mobile",
-                "style": "css"
-            }
-        ]
+        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
     ]
 }

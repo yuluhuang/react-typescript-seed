@@ -40,7 +40,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             ],
         },
         hot: true,
-        contentBase: false, // since we use CopyWebpackPlugin.
+        contentBase: path.join(__dirname, 'dist'),// false, // since we use CopyWebpackPlugin.
         compress: true,
         host: HOST || config.dev.host,
         port: PORT || config.dev.port,
@@ -61,8 +61,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             __DEVELOPMENT__: true, //判断node环境变量为development是赋值为true
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
-        new webpack.NoEmitOnErrorsPlugin(),
+        // new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+        // new webpack.NoEmitOnErrorsPlugin(),
         // https://github.com/ampedandwired/html-webpack-plugin
         // new HtmlWebpackPlugin({
         //   filename: 'index.html',

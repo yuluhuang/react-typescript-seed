@@ -59,8 +59,7 @@ module.exports = {
             ENV: path.resolve(__dirname, '../config/'  + process.env.NODE_ENV + '.env.js')
         }),
         new MiniCssExtractPlugin({
-            filename: '[hash].css',
-            disable: !isProduction
+            filename: '[hash].css'
         }),
     ],
     module: {

@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { RouteComponentProps } from 'react-router';
 // import {bindActionCreators} from "redux";
 // @ts-ignore
-import {createForm, formShape} from 'rc-form';
-import qs from 'qs';
-import {List, InputItem, Toast, Flex, Button} from 'antd-mobile';
+// import {createForm, formShape} from 'rc-form';
+// import qs from 'qs';
+// import {List, InputItem, Toast, Flex, Button} from 'antd';
+import { Form, Input, Button, Checkbox } from 'antd';
 import {connect} from "react-redux";
 import redux from "redux";
 
@@ -49,7 +50,7 @@ class Login extends React.Component<LoginProps, LoginState>{
 
     static propTypes = {
         auth: PropTypes.object,
-        form: formShape,
+        // form: formShape,
     };
     // static contextTypes = {
     //     store: PropTypes.object.isRequired,
@@ -60,100 +61,83 @@ class Login extends React.Component<LoginProps, LoginState>{
         // this.context.router.history.push(PathLink.codeLogin);
     }
     register = (e: any) => {
-        Toast.loading('注册中...', 30);
+        // Toast.loading('注册中...', 30);
         // this.context.router.history.push(PathLink.codeLogin);
     }
     handleClick = (e: any) => {
         e.preventDefault();
-        Toast.loading('登录中...', 30);
-        const {login} = this.props;
-        if (this.props.auth.disabled) {
-            Toast.fail('登录中');
-            return;
-        }
-        const validateArr = ['loginName', 'password'];
-        this.props.form.validateFields(validateArr, async (err: any, values: any) => {
-            if (err) {
-                return Toast.hide();
-            }
-            const _loginName = values.loginName.split(' ').join('');
-            const res = await login(_loginName, values.password.trim());
-            console.log(res);
-            Toast.hide();
-            // if (!res.err) {
-            //     Toast.info('登录成功', 2);
-            //     // util.token(res.data.result.sessionID);
-            //     // util.phone(_loginName);
-            //     this.context.router.history.replace('/mine');
-            // }
-            this.props.history.replace('/index');
-        });
+        // Toast.loading('登录中...', 30);
+        // const {login} = this.props;
+        // if (this.props.auth.disabled) {
+        //     Toast.fail('登录中');
+        //     return;
+        // }
+        // const validateArr = ['loginName', 'password'];
+        // this.props.form.validateFields(validateArr, async (err: any, values: any) => {
+        //     if (err) {
+        //         return Toast.hide();
+        //     }
+        //     const _loginName = values.loginName.split(' ').join('');
+        //     const res = await login(_loginName, values.password.trim());
+        //     console.log(res);
+        //     Toast.hide();
+        //     // if (!res.err) {
+        //     //     Toast.info('登录成功', 2);
+        //     //     // util.token(res.data.result.sessionID);
+        //     //     // util.phone(_loginName);
+        //     //     this.context.router.history.replace('/mine');
+        //     // }
+        //     this.props.history.replace('/index');
+        // });
     }
+    onFinish = (values: any) => {
+        console.log('Success:', values);
+    };
+
+    onFinishFailed = (errorInfo: any) => {
+        console.log('Failed:', errorInfo);
+    };
 
     render() {
-        const {getFieldProps, getFieldError} = this.props.form;
-        const query = qs.parse(this.props.location.search.substring(1));
-        const initLoginName = query.loginName;
+        // const {getFieldProps, getFieldError} = this.props.form;
+        // const query = qs.parse(this.props.location.search.substring(1));
+        // const initLoginName = query.loginName;
 
         return (
-            <form className="login">
-                <List
-                    renderHeader={() => ''}
-                    renderFooter={() => {
-                        console.log();
-                        return (
-                            <div className="error-tip">
-                                {
-                                    getFieldError('loginName') && getFieldError('loginName').join(',') ||
-                                    getFieldError('password') && getFieldError('password').join(',')
-                                }
-                            </div>
-                        );
-                    }}>
-                    <InputItem
-                        {...getFieldProps('loginName', {
-                            initialValue: initLoginName,
-                            onChange() {
-                            }, // have to write original onChange here if you need
-                            rules: [{required: true, message: '请输入您的账号'}],
-                        })}
-                        labelNumber={2}
-                        type="phone"
-                        clear
-                        placeholder="账号"
-                    >
-                        <div>
-                            <i className="iconfont icon-mobilephone" style={{color: 'rgba(0,0,0,.25)'}} /></div>
-                    </InputItem>
-                    <InputItem
-                        {...getFieldProps('password', {
-                            onChange() {
-                            }, // have to write original onChange here if you need
-                            rules: [
-                                {required: true, message: '请输入您的密码'}
-                            ],
-                        })}
-                        clear
-                        labelNumber={2}
-                        type="password"
-                        placeholder="密码"
-                    >
-                        <div>
-                            <i className="iconfont icon-password" style={{color: 'rgba(0,0,0,.25)'}} /></div>
-                    </InputItem>
-                </List>
+            <Form
+                name="basic"
+                labelCol={{ span: 8 }}
+                wrapperCol={{ span: 16 }}
+                initialValues={{ remember: true }}
+                onFinish={this.onFinish}
+                onFinishFailed={this.onFinishFailed}
+            >
+                <Form.Item
+                    label="Username"
+                    name="username"
+                    rules={[{ required: true, message: 'Please input your username!' }]}
+                >
+                    <Input />
+                </Form.Item>
 
-                <div>
-                    <Flex style={{textAlign: 'center'}}>
-                        <Flex.Item>
-                            <Button type="primary" inline size={'small'} onClick={this.handleClick}>登录</Button>
-                        </Flex.Item>
-                        <Flex.Item>
-                            <Button type="ghost" inline size={'small'} onClick={this.register}>注册</Button>
-                        </Flex.Item>
-                    </Flex>
-                </div>
-            </form>
+                <Form.Item
+                    label="Password"
+                    name="password"
+                    rules={[{ required: true, message: 'Please input your password!' }]}
+                >
+                    <Input.Password />
+                </Form.Item>
+
+                <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+                    <Checkbox>Remember me</Checkbox>
+                </Form.Item>
+
+                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                    <Button type="primary" htmlType="submit">
+                        Submit
+                    </Button>
+                </Form.Item>
+            </Form>
         )
     }
 }
@@ -166,5 +150,5 @@ const mapStateToProps = (state: any, ownProps: LoginPageProps): ReduxState => {
 const mapDispatchToProps = (dispatch: redux.Dispatch) => ({
     login: (username: string, password: string) => dispatch(authAction.login({username, password})),
 })
-export default connect(mapStateToProps,mapDispatchToProps)(createForm()(Login))
+export default connect(mapStateToProps,mapDispatchToProps)(Login)
 

@@ -31,7 +31,7 @@ module.exports = {
             },
         },
         useEslint: false,
-        autoOpenBrowser: false,
+        autoOpenBrowser: true,
         errorOverlay: true,
         notifyOnErrors: true,
         showEslintErrorsInOverlay: true,
